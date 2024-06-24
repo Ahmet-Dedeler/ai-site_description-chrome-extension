@@ -1,11 +1,8 @@
-chrome.action.onClicked.addListener((tab) => {
-  chrome.scripting.executeScript({
-    target: {tabId: tab.id},
-    function: pageScript
-  });
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "executeScript") {
+    chrome.scripting.executeScript({
+      target: {tabId: request.tabId},
+      function: pageScript
+    });
+  }
 });
-
-function pageScript() {
-  // Your code to run on the current page
-  alert("Hello from my Chrome extension!");
-}
