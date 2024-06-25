@@ -45,4 +45,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             message: 'This notification was triggered by the user.'
         });
     }
+    if (request.action === "toggleDarkTheme") {
+      console.log("Dark theme toggled.");
+  }
 });

@@ -4,6 +4,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     } else if (request.action === "applyFontSize") {
         document.body.style.fontSize = request.fontSize;
     }
+    if (request.action === "toggleDarkTheme") {
+      document.body.classList.toggle('dark-theme');
+  }
 });
 
 // Example of applying the font size setting
