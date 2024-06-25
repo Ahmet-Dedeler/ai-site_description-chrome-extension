@@ -54,4 +54,18 @@ function displayTodos() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', displayTodos);
+document.getElementById('saveNote').addEventListener('click', () => {
+    const noteContent = document.getElementById('quickNoteContent').value;
+    chrome.storage.sync.set({'quickNote': noteContent}, () => {
+        console.log('Note saved');
+        // Optionally, clear the textarea or show a message to the user
+    });
+});
+
+// Load the note when the popup is opened
+document.addEventListener('DOMContentLoaded', () => {
+    chrome.storage.sync.get('quickNote', (data) => {
+        document.getElementById('quickNoteContent').value = data.quickNote || '';
+    });
+    displayTodos(); // Existing call
+});

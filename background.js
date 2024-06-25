@@ -49,3 +49,29 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       console.log("Dark theme toggled.");
   }
 });
+
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.action.setBadgeText({text: 'ON'}).catch(console.error);
+  chrome.action.setBadgeBackgroundColor({color: '#4688F1'}).catch(console.error);
+
+  try {
+    chrome.contextMenus.create({
+      id: "sampleContextMenu",
+      title: "Sample Context Menu",
+      contexts: ["selection"]
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+// Add error handling in listeners
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+  if (info.menuItemId === "sampleContextMenu") {
+    console.log("You clicked the context menu!", info.selectionText);
+  }
+});
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  // Handle actions with improved error handling
+});

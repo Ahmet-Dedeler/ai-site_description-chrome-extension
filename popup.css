@@ -77,3 +77,9 @@ input[type="color"] {
 #todoItems button {
     margin-left: 10px;
 }
+
+/* Add transitions for smoother hover effects */
+button:hover {
+    background-color: #45a049;
+    transition: background-color 0.3s ease;
+}
