@@ -57,3 +57,23 @@ input[type="color"] {
     background-color: #121212;
     color: #e0e0e0;
 }
+
+.todo-list {
+    margin-top: 20px;
+}
+
+#todoItems {
+    list-style: none;
+    padding: 0;
+}
+
+#todoItems li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#todoItems button {
+    margin-left: 10px;
+}

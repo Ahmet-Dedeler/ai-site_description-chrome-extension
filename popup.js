@@ -23,3 +23,35 @@ document.getElementById('toggleDarkTheme').addEventListener('click', () => {
         chrome.tabs.sendMessage(tabs[0].id, {action: "toggleDarkTheme"});
     });
 });
+
+document.getElementById('addTodo').addEventListener('click', () => {
+    const newTodo = document.getElementById('newTodo').value;
+    if (newTodo) {
+        const todoList = JSON.parse(localStorage.getItem('todoList') || '[]');
+        todoList.push(newTodo);
+        localStorage.setItem('todoList', JSON.stringify(todoList));
+        document.getElementById('newTodo').value = ''; // Clear input
+        displayTodos();
+    }
+});
+
+function displayTodos() {
+    const todoList = JSON.parse(localStorage.getItem('todoList') || '[]');
+    const todoItemsElement = document.getElementById('todoItems');
+    todoItemsElement.innerHTML = ''; // Clear current todos
+    todoList.forEach((todo, index) => {
+        const li = document.createElement('li');
+        li.textContent = todo;
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.onclick = function() {
+            todoList.splice(index, 1);
+            localStorage.setItem('todoList', JSON.stringify(todoList));
+            displayTodos();
+        };
+        li.appendChild(deleteButton);
+        todoItemsElement.appendChild(li);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', displayTodos);
