@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Popup</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Popup</title>
     <link rel="stylesheet" href="popup.css">
 </head>
 <body>
     <div class="container">
-        <h1>Sample Chrome Extension</h1>
-        <button id="changeColor">Change Background Color</button>
-        <p>Click the button to change the background color of the active tab.</p>
+        <header>
+            <h1>Enhanced Chrome Extension</h1>
+        </header>
+        <main>
+            <div class="color-picker">
+                <label for="colorChoice">Choose a Background Color:</label>
+                <input type="color" id="colorChoice" name="color" value="#008CBA">
+                <button id="changeColor">Apply Color</button>
+            </div>
+            <div class="notification-trigger">
+                <button id="triggerNotification">Trigger Notification</button>
+            </div>
+        </main>
+        <footer>
+            <p>Click the button to change the background color of the active tab or trigger a notification.</p>
+        </footer>
     </div>
     <script src="popup.js"></script>
 </body>

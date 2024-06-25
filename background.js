@@ -35,3 +35,14 @@ function pageScript() {
   // Example function to be executed in the context of the webpage
   console.log('Page script executed.');
 }
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === "triggerNotification") {
+        chrome.notifications.create({
+            type: 'basic',
+            iconUrl: 'images/icon48.png',
+            title: 'User Triggered Notification',
+            message: 'This notification was triggered by the user.'
+        });
+    }
+});
