@@ -29,13 +29,12 @@ class URLCheckRequest(BaseModel):
 
 @app.post("/check_url")
 async def check_url(request: URLCheckRequest):
-
-    prompt = f"Check if the following URL is a phishing site. You have to answer in Yes or No. I am looking for binary response only. Phishing URL is : {request.url}"
+    prompt = f"Describe the following URL: {request.url}. Provide a brief description of the website."
 
     completion = client.chat.completions.create(
         model="gpt-4o",
         messages=[
-            {"role": "system", "content": "You are a cybersecurity analyst whose expertise lies in analyzing websites URL and detect if that is a phishing site or not!"},
+            {"role": "system", "content": "You are an AI trained to provide descriptions of websites based on their URLs."},
             {"role": "user", "content": prompt}
         ]
     )

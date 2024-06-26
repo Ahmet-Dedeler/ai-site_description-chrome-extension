@@ -1,11 +1,8 @@
 document.getElementById('checkButton').addEventListener('click', async () => {    
     const resultDiv = document.getElementById('result');
-    resultDiv.style.display = 'none';
-    console.log('Check button clicked'); // Log when the button is clicked
+    resultDiv.innerHTML = '<div class="loading-indicator">Loading...</div>'; // Show loading indicator
     let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
-    console.log('Current tab:', tab); // Log the tab object to verify URL is accessible
     if (tab.url) {
-        console.log('Sending request to backend with URL:', tab.url); // Log the URL being sent
         try {
             const response = await fetch('http://localhost:8000/check_url', {
                 method: 'POST',
@@ -15,18 +12,13 @@ document.getElementById('checkButton').addEventListener('click', async () => {
                 body: JSON.stringify({url: tab.url}),
             });
             const data = await response.json();
-            resultDiv.textContent = data.result;
-            if (data.result.includes('Yes')) {
-                resultDiv.classList.add('alert-danger');
-            }else{
-                resultDiv.classList.add('alert-success');
-            }
-            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `<div class="description-text">Website Description: ${data.result}</div>`; // Use innerHTML for formatting
+            resultDiv.classList.remove('alert-danger', 'alert-success'); // Remove specific styling for phishing check
         } catch (error) {
-            console.error('Error:', error); // Log any errors encountered during fetch
-            document.getElementById('result').textContent = 'Error checking URL.';
+            console.error('Error:', error);
+            resultDiv.innerHTML = '<div class="description-text">Error retrieving website description.</div>';
         }
     } else {
-        console.log('No URL found in current tab'); // Log if no URL is found
+        console.log('No URL found in current tab');
     }
 });
