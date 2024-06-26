@@ -4,15 +4,12 @@ body {
     padding: 0;
     width: 400px; /* Adjust width as needed */
 }
-
 h3 {
     color: #333; /* Dark color for visibility */
 }
-
 p {
     margin-bottom: 20px;
 }
-
 #checkButton {
     background-color: #007bff;
     color: white;
@@ -21,7 +18,9 @@ p {
     border-radius: 5px;
     cursor: pointer;
 }
-
 #checkButton:hover {
     background-color: #0056b3;
+}
+#result {
+    display: none; /* Initially hidden */
 }
