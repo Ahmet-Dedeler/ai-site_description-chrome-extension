@@ -1,6 +1,7 @@
 # URL Description Teller
 
-![image](https://github.com/Ahmet-Dedeler/ai-site_description-chrome-extension/assets/105894172/4e8ebd6c-5da4-4684-a94b-c3c7a41f9f7a)
+![image](https://github.com/Ahmet-Dedeler/ai-site_description-chrome-extension/assets/105894172/12cdf0d8-f897-45a2-9776-139911fac9c8)
+
 
 
 ## What is it?
