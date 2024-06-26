@@ -12,7 +12,7 @@ document.getElementById('checkButton').addEventListener('click', async () => {
                 body: JSON.stringify({url: tab.url}),
             });
             const data = await response.json();
-            resultDiv.textContent = `Website Description: ${data.result}`;
+            resultDiv.textContent = `${data.result}`;
             resultDiv.classList.remove('alert-danger', 'alert-success'); // Remove specific styling for phishing check
             resultDiv.style.display = 'block';
         } catch (error) {
