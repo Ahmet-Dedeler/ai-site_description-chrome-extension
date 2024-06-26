@@ -1,5 +1,8 @@
 # URL Description Teller
 
+![image](https://github.com/Ahmet-Dedeler/ai-site_description-chrome-extension/assets/105894172/4e8ebd6c-5da4-4684-a94b-c3c7a41f9f7a)
+
+
 ## What is it?
 
 This Chrome extension tells you what a website is about before you visit it. It's like having a quick preview or a summary of the site's content.
