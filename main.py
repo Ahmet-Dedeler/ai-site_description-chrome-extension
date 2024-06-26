@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from dotenv import load_dotenv
 import os
-from openai import OpenAI
+from openai import AzureOpenAI
 from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
@@ -17,11 +17,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-os.environ["OPENAI_API_KEY"] = os.getenv("AZURE_OPENAI_KEY")
-
 client = AzureOpenAI(
     # https://learn.microsoft.com/azure/ai-services/openai/reference#rest-api-versioning
-    api_version="2024-05-13",
+    api_version="2024-02-15-preview",
     # https://learn.microsoft.com/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#create-a-resource
     azure_endpoint=os.getenv("AZURE_ENDPOINT"),
 )
