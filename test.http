@@ -1,3 +1,0 @@
-curl -X POST http://localhost:8000/check_url \
--H 'Content-Type: application/json' \
--d '{"url": "http://example.com"}'
