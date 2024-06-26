@@ -20,7 +20,18 @@
             <div class="todo-list">
                 <h2>Todo List</h2>
                 <input type="text" id="newTodo" placeholder="Add a new task...">
+                <select id="todoPriority">
+                    <option value="High">High</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="Low">Low</option>
+                </select>
                 <button id="addTodo">Add</button>
+                <select id="filterPriority">
+                    <option value="All">All</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
                 <ul id="todoItems"></ul>
             </div>
             <div class="theme-toggle">

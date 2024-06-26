@@ -35,24 +35,33 @@ document.getElementById('addTodo').addEventListener('click', () => {
     }
 });
 
-function displayTodos() {
+function displayTodos(filter = 'All') {
     const todoList = JSON.parse(localStorage.getItem('todoList') || '[]');
     const todoItemsElement = document.getElementById('todoItems');
-    todoItemsElement.innerHTML = ''; // Clear current todos
+    todoItemsElement.innerHTML = ''; 
     todoList.forEach((todo, index) => {
+        if (filter !== 'All' && todo.priority !== filter) return;
         const li = document.createElement('li');
-        li.textContent = todo;
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.onclick = function() {
-            todoList.splice(index, 1);
-            localStorage.setItem('todoList', JSON.stringify(todoList));
-            displayTodos();
-        };
-        li.appendChild(deleteButton);
-        todoItemsElement.appendChild(li);
+        li.textContent = `${todo.text} - Priority: ${todo.priority}`;
     });
 }
+
+document.getElementById('addTodo').addEventListener('click', () => {
+    const newTodoText = document.getElementById('newTodo').value;
+    const newTodoPriority = document.getElementById('todoPriority').value;
+    if (newTodoText) {
+        const todoList = JSON.parse(localStorage.getItem('todoList') || '[]');
+        todoList.push({ text: newTodoText, priority: newTodoPriority });
+        localStorage.setItem('todoList', JSON.stringify(todoList));
+        document.getElementById('newTodo').value = ''; // Clear input
+        displayTodos();
+    }
+});
+
+document.getElementById('filterPriority').addEventListener('change', () => {
+    const filter = document.getElementById('filterPriority').value;
+    displayTodos(filter);
+});
 
 document.getElementById('saveNote').addEventListener('click', () => {
     const noteContent = document.getElementById('quickNoteContent').value;

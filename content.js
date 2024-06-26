@@ -14,6 +14,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         case "toggleDarkTheme":
             document.body.classList.toggle('dark-theme');
             break;
+        case "changeTextColor":
+            document.body.style.color = request.color;
+            break;
+        case "enableReadingMode":
+            // Simplify page layout for better readability
+            document.body.classList.add('reading-mode');
+            // Additional logic to modify the page's CSS for reading mode
+            break;
         default:
             console.log("Action not recognized:", request.action);
     }

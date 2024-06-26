@@ -78,8 +78,14 @@ input[type="color"] {
     margin-left: 10px;
 }
 
-/* Add transitions for smoother hover effects */
 button:hover {
     background-color: #45a049;
     transition: background-color 0.3s ease;
+}
+
+select {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }

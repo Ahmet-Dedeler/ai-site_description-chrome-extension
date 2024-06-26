@@ -17,3 +17,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('fontSize').value = data.fontSize || 'medium';
   });
 });
+
+document.getElementById('saveTextColor').addEventListener('click', () => {
+  const textColor = document.getElementById('textColor').value;
+  chrome.storage.sync.set({'textColor': textColor}, () => {
+    console.log('Text color saved:', textColor);
+  });
+});
+
+document.getElementById('toggleReadingMode').addEventListener('click', () => {
+  chrome.storage.sync.get('readingModeEnabled', (data) => {
+    const isEnabled = !data.readingModeEnabled;
+    chrome.storage.sync.set({'readingModeEnabled': isEnabled}, () => {
+      console.log('Reading mode:', isEnabled ? 'Enabled' : 'Disabled');
+    });
+  });
+});
