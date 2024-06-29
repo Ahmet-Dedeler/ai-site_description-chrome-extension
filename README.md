@@ -33,10 +33,10 @@ git clone https://github.com/Ahmet-Dedeler/ai-site_description-chrome-extension.
 python -m venv openai-env
 
 # Activate virtual environment (Linux/Mac)
-source venv/bin/activate
+source openai-env/bin/activate
 
 # Activate virtual environment (Windows)
-venv\Scripts\activate
+openai-env\Scripts\activate
 ```
 
 3. Set up the backend by installing required packages
