@@ -1,10 +1,11 @@
 document.getElementById('checkButton').addEventListener('click', async () => {    
     const resultDiv = document.getElementById('result');
+    const apiUrl = document.getElementById('urlInput');
     resultDiv.style.display = 'none';
     let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
     if (tab.url) {
         try {
-            const response = await fetch('http://localhost:8000/check_url', {
+            const response = await fetch(apiUrl.value, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
