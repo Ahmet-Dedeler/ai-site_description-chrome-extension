@@ -23,9 +23,35 @@ It uses AI to read the website's content and gives you a brief description. Here
 
 ## How to start using it
 
-1. Clone this repo to your computer.
-2. Set up the backend by installing required packages (`pip install -r requirements.txt`) and starting the FastAPI server.
-3. Load the extension in Chrome by going to `chrome://extensions/`, turning on Developer mode, and loading the `frontend` folder.
+1. Clone this repo to your computer
+```bash
+git clone https://github.com/Ahmet-Dedeler/ai-site_description-chrome-extension.git
+```
+
+2. Create a virtual environment
+```bash
+python -m venv openai-env
+
+# Activate virtual environment (Linux/Mac)
+source openai-env/bin/activate
+
+# Activate virtual environment (Windows)
+openai-env\Scripts\activate
+```
+
+3. Set up the backend by installing required packages
+```bash
+pip install -r requirements.txt
+```
+
+4. Create a .env file
+   
+5. Run the FastAPI server
+```bash
+uvicorn main:app --reload
+```
+
+6. Load the extension in Chrome by going to `chrome://extensions/`, turning on Developer mode, and loading the `frontend` folder.
 
 ## How to help out
 
