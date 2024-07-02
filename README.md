@@ -54,7 +54,7 @@ uvicorn main:app --reload
 
 6. Load the extension in Chrome by going to `chrome://extensions/`, turning on Developer mode, and loading the `frontend` folder.
 
-## Running with Docker (Alternative Setup)
+## Running with Docker
 
 If you prefer to use Docker, you can easily set up the backend without manually configuring the environment.
 
