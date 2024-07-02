@@ -53,6 +53,48 @@ uvicorn main:app --reload
 
 6. Load the extension in Chrome by going to `chrome://extensions/`, turning on Developer mode, and loading the `frontend` folder.
 
+## Running with Docker (Alternative Setup)
+
+If you prefer to use Docker, you can easily set up the backend without manually configuring the environment.
+
+1. Build the Docker image
+
+```bash
+docker build -t uvicorn-backend .
+```
+
+2. Run the Docker container
+
+```bash
+docker run -d -p 8000:8000 \
+  -e OPENAI_API_KEY=your_value_here \
+  -e ENVIRONMENT=production \
+  uvicorn-backend
+```
+
+Replace **your_value_here** with your actual OpenAI API key.
+
+For development mode, use:
+
+```bash
+docker run -d -p 8000:8000 \
+  -e OPENAI_API_KEY=your_value_here \
+  -e ENVIRONMENT=development \
+  uvicorn-backend
+```
+
+This command starts the backend service, making it accessible on port 8000.
+
+# Development vs Production
+
+- The Docker setup includes both development and production configurations.
+
+- In development mode, the app uses uvicorn with hot-reloading enabled.
+
+- In production mode, the app uses gunicorn for better performance and stability.
+
+- Set the ENVIRONMENT variable to either development or production when running the container.
+
 ## How to help out
 
 If you have ideas for improvements or find a bug, feel free to contribute. Your input helps make this tool better for everyone.

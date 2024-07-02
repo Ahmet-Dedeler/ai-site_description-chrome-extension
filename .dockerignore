@@ -1,0 +1,40 @@
+# Python cache files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.Python
+env/
+venv/
+openai-env/
+.env
+
+# Version control
+.git
+.gitignore
+
+# Docker-related
+.dockerignore
+Dockerfile
+docker-compose*.yml
+
+# Documentation
+README.md
+LICENSE
+*.md
+
+# Frontend (assuming it's not needed in the Docker image)
+frontend/
+
+# Log files
+*.log
+
+# Local development files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
