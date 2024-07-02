@@ -2,8 +2,6 @@
 
 ![image](https://github.com/Ahmet-Dedeler/ai-site_description-chrome-extension/assets/105894172/12cdf0d8-f897-45a2-9776-139911fac9c8)
 
-
-
 ## What is it?
 
 This Chrome extension tells you what a website is about before you visit it. It's like having a quick preview or a summary of the site's content.
@@ -24,11 +22,13 @@ It uses AI to read the website's content and gives you a brief description. Here
 ## How to start using it
 
 1. Clone this repo to your computer
+
 ```bash
 git clone https://github.com/Ahmet-Dedeler/ai-site_description-chrome-extension.git
 ```
 
 2. Create a virtual environment
+
 ```bash
 python -m venv openai-env
 
@@ -40,13 +40,14 @@ openai-env\Scripts\activate
 ```
 
 3. Set up the backend by installing required packages
+
 ```bash
 pip install -r requirements.txt
 ```
 
 4. Create a .env file
-   
 5. Run the FastAPI server
+
 ```bash
 uvicorn main:app --reload
 ```
@@ -69,7 +70,7 @@ docker build -t uvicorn-backend .
 docker run -d -p 8000:8000 \
   -e OPENAI_API_KEY=your_value_here \
   -e ENVIRONMENT=production \
-  uvicorn-backend
+  ai-site_description-chrome-extension-backend
 ```
 
 Replace **your_value_here** with your actual OpenAI API key.
@@ -80,7 +81,7 @@ For development mode, use:
 docker run -d -p 8000:8000 \
   -e OPENAI_API_KEY=your_value_here \
   -e ENVIRONMENT=development \
-  uvicorn-backend
+  ai-site_description-chrome-extension-backend
 ```
 
 This command starts the backend service, making it accessible on port 8000.
